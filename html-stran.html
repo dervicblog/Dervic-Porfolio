@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="sl" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Zgodba | Dervic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root[data-theme="light"] { --bg: #fffdf5; --text: #2b2b2b; --accent: #929d19; --ink: #13a78a; }
+        :root[data-theme="dark"] { --bg: #1e272e; --text: #d2dae2; --accent: #ffdd59; --ink: #00d8d6; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Caveat', cursive; }
+        body { max-width: 999px; margin: 0 auto; padding: 60px 25px; background-color: var(--bg); color: var(--text); line-height: 1.4; }
+
+        .back-link { display: inline-block; margin-bottom: 30px; color: var(--ink); text-decoration: none; font-size: 24px; border-bottom: 2px solid var(--ink); }
+        
+        h1 { font-size: 80px; color: var(--accent); margin-bottom: 20px; transform: rotate(-1deg); }
+        h2 { font-size: 50px; color: var(--ink); margin-top: 40px; margin-bottom: 20px; }
+        
+        .large-text { font-size: 40px; margin-bottom: 20px; font-weight: 700; }
+        .body-text { font-size: 28px; margin-bottom: 20px; }
+        .highlight { color: var(--accent); font-weight: 700; }
+        .ink-text { color: var(--ink); }
+
+        /* Popravljen code-block */
+        .code-block { 
+            background: rgba(0,0,0,0.05); 
+            padding: 25px; 
+            border-radius: 15px 50px 30px 5px; /* Malo bolj "sketched" oblika */
+            font-family: 'Caveat', cursive; /* Uporabljena prava pisava */
+            font-size: 26px; 
+            margin: 30px 0;
+            border: 3px dashed var(--ink); /* Črtkana obroba za ročni videz */
+            color: var(--text);
+            line-height: 1.5;
+        }
+        
+        header {
+            display: flex;             /* Omogoči flexbox */
+            justify-content: space-between; /* Naslov levo, gumb desno */
+            align-items: center;       /* Navpično poravnanje */
+           
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 2px solid var(--text);
+            padding: 2px 12px;
+            cursor: pointer;
+            color: var(--text);
+            border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+            font-size: 20px;
+            /* Gumb se zdaj samodejno postavi v headerju */
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Nazaj na portfolio</a>
+
+    <header>
+        <h2>HTML: Ko se je vse začelo</h2>
+        
+        <button id="theme-toggle">tema!</button>
+    </header>
+
+    <main>
+        <p class="large-text">Leto 2012 je bilo zame prelomno. Takrat sem prvič odprl beležnico in napisal svojo prvo oznako.</p>
+        
+        <p class="body-text">
+            Bilo je preprosto, a hkrati <span class="highlight">magično</span>. Vse kar sem potreboval, je bil preprost urejevalnik besedila in brskalnik. Spomnim se tistega občutka, ko sem prvič shranil datoteko kot <strong>index.html</strong> in jo zagnal. 
+        </p>
+
+        <h2>Prvi koraki v kodo</h2>
+        <p class="body-text">
+            Svet spletnega razvoja se mi je odprl skozi preproste značke. Učenje sintakse ni bilo le suhoparno tipkanje, bilo je <span class="ink-text">grajenje strukture</span> iz nič. Vsak <code>&lt;div&gt;</code> in vsak <code>&lt;p&gt;</code> je imel svoj namen.
+        </p>
+
+        <div class="code-block">
+            &lt;h1&gt;Pozdravljen svet!&lt;/h1&gt;<br>
+            &lt;p&gt;To je bila moja prva spletna stran.&lt;/p&gt;
+        </div>
+
+        <p class="body-text">
+            Največji izziv ni bil v pisanju kode, ampak v razumevanju, kako se elementi med seboj povezujejo. Naučiti se <span class="highlight">hierarhije</span> dokumenta je bilo ključno. Takrat nisem vedel, da bo to postala moja kariera, vedel sem le, da me neznansko zabava, ko lahko z nekaj vrsticami teksta spremenim, kako stran izgleda.
+        </p>
+
+        <h2 style="font-size: 40px;">Napake so bile najboljši učitelj</h2>
+        <p class="body-text">
+            Oh, tiste napake! Pozabljeni zapiralni <code>&lt;/tag&gt;</code>, napačno gnezdenje... Vse to me je naučilo <span class="ink-text">potrpežljivosti</span>. HTML je bil zame kot lego kocke; če nisi pravilno sestavil podlage, se je celotna stran sesula. Ampak ko je delovalo... tisti občutek zadovoljstva je bil neprecenljiv.
+        </p>
+
+        <p class="large-text" style="text-align: center; margin-top: 50px;">
+            Danes, več kot desetletje kasneje, še vedno gojim tisto isto navdušenje, ko odprem prazen dokument.
+        </p>
+    </main>
+
+    <script>
+        const btn = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+        btn.addEventListener("click", () => {
+            const currentTheme = root.getAttribute("data-theme");
+            root.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+        });
+    </script>
+</body>
+</html>

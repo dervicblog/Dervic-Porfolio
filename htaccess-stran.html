@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sl" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.htaccess Zgodba | Dervic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root[data-theme="light"] { --bg: #fffdf5; --text: #2b2b2b; --accent: #929d19; --ink: #13a78a; }
+        :root[data-theme="dark"] { --bg: #1e272e; --text: #d2dae2; --accent: #ffdd59; --ink: #00d8d6; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Caveat', cursive; }
+        body { max-width: 999px; margin: 0 auto; padding: 60px 25px; background-color: var(--bg); color: var(--text); line-height: 1.4; }
+
+        .back-link { display: inline-block; margin-bottom: 30px; color: var(--ink); text-decoration: none; font-size: 24px; border-bottom: 2px solid var(--ink); }
+        
+        h1 { font-size: 80px; color: var(--accent); margin-bottom: 20px; transform: rotate(-1deg); }
+        h2 { font-size: 50px; color: var(--ink); margin-top: 40px; margin-bottom: 20px; }
+        
+        .large-text { font-size: 40px; margin-bottom: 20px; font-weight: 700; }
+        .body-text { font-size: 28px; margin-bottom: 20px; }
+        .highlight { color: var(--accent); font-weight: 700; }
+        .ink-text { color: var(--ink); }
+
+        .code-block { 
+            background: rgba(0,0,0,0.05); 
+            padding: 25px; 
+            border-radius: 15px 50px 30px 5px; 
+            font-family: 'Caveat', cursive; 
+            font-size: 26px; 
+            margin: 30px 0;
+            border: 3px dashed var(--ink); 
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        header {
+            display: flex;             /* Omogoči flexbox */
+            justify-content: space-between; /* Naslov levo, gumb desno */
+            align-items: center;       /* Navpično poravnanje */
+            
+      
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 2px solid var(--text);
+            padding: 2px 12px;
+            cursor: pointer;
+            color: var(--text);
+            border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+            font-size: 20px;
+            /* Gumb se zdaj samodejno postavi v headerju */
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Nazaj na portfolio</a>
+
+    <header>
+        <h2>.htaccess: Strežniška čarovnija</h2>
+        
+        <button id="theme-toggle">tema!</button>
+    </header>
+    
+    <main>
+        <p class="large-text">Leto 2017. Ko sem mislil, da vem vse o kodi, sem odkril, da se prava moč skriva v nastavitvah strežnika.</p>
+        
+        <p class="body-text">
+            .htaccess je bila zame prava <span class="highlight">črna magija</span>. Majhna datoteka, ki živi v mapi in nadzoruje celotno obnašanje strežnika? Neverjetno! To je bil trenutek, ko sem se naučil, da koda ni edino, kar šteje – ključna je tudi infrastruktura.
+        </p>
+
+        <h2>Preglednost in varnost</h2>
+        <p class="body-text">
+            Najprej sem ga uporabljal za preproste reči, kot je "lepa" URL povezava (da `index.php?id=123` postane `blog/123`). Nenadoma so moje strani izgledale profesionalno. Potem sem odkril varnost: onemogočanje brskanja po mapah, preusmeritve in zaščita datotek.
+        </p>
+
+        <div class="code-block">
+            RewriteEngine On<br>
+            RewriteRule ^blog/(.*)$ post.php?id=$1 [L]<br>
+            ErrorDocument 404 /napaka.html
+        </div>
+
+        <p class="body-text">
+            Bilo je <span class="ink-text">potrebno in nujno</span>. Z vsako vrstico v `.htaccess` datoteki sem se počutil, kot da utrjujem zidove svoje digitalne trdnjave. Učenje sintakse Apache pravil me je prisililo, da sem začel razmišljati kot sistemski administrator, ne le kot frontend razvijalec.
+        </p>
+
+        <h2 style="font-size: 40px;">Moč kontrole</h2>
+        <p class="body-text">
+            Naučil sem se, da dobra spletna stran ni odvisna le od tega, kaj uporabnik vidi, ampak tudi od tega, kako se strežnik odziva. <span class="highlight">Optimizacija</span>, varnostne nastavitve in nadzor dostopa – to so stvari, ki ločijo "skriptarja" od pravega razvijalca.
+        </p>
+
+        <p class="large-text" style="text-align: center; margin-top: 50px;">
+            S to datoteko se je moje razumevanje spleta zaokrožilo. Od prvega `&lt;html&gt;` taga do konfiguracije strežnika – vse je del ene velike zgodbe.
+        </p>
+    </main>
+
+    <script>
+        const btn = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+        btn.addEventListener("click", () => {
+            const currentTheme = root.getAttribute("data-theme");
+            root.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+        });
+    </script>
+</body>
+</html>

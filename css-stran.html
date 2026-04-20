@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sl" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Zgodba | Dervic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root[data-theme="light"] { --bg: #fffdf5; --text: #2b2b2b; --accent: #929d19; --ink: #13a78a; }
+        :root[data-theme="dark"] { --bg: #1e272e; --text: #d2dae2; --accent: #ffdd59; --ink: #00d8d6; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Caveat', cursive; }
+        body { max-width: 999px; margin: 0 auto; padding: 60px 25px; background-color: var(--bg); color: var(--text); line-height: 1.4; }
+
+        .back-link { display: inline-block; margin-bottom: 30px; color: var(--ink); text-decoration: none; font-size: 24px; border-bottom: 2px solid var(--ink); }
+        
+        h1 { font-size: 80px; color: var(--accent); margin-bottom: 20px; transform: rotate(-1deg); }
+        h2 { font-size: 50px; color: var(--ink); margin-top: 40px; margin-bottom: 20px; }
+        
+        .large-text { font-size: 40px; margin-bottom: 20px; font-weight: 700; }
+        .body-text { font-size: 28px; margin-bottom: 20px; }
+        .highlight { color: var(--accent); font-weight: 700; }
+        .ink-text { color: var(--ink); }
+
+        .code-block { 
+            background: rgba(0,0,0,0.05); 
+            padding: 25px; 
+            border-radius: 15px 50px 30px 5px; 
+            font-family: 'Caveat', cursive; 
+            font-size: 26px; 
+            margin: 30px 0;
+            border: 3px dashed var(--ink); 
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        header {
+            display: flex;             /* Omogoči flexbox */
+            justify-content: space-between; /* Naslov levo, gumb desno */
+            align-items: center;       /* Navpično poravnanje */
+            
+      
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 2px solid var(--text);
+            padding: 2px 12px;
+            cursor: pointer;
+            color: var(--text);
+            border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+            font-size: 20px;
+            /* Gumb se zdaj samodejno postavi v headerju */
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Nazaj na portfolio</a>
+
+    <header>
+        <h2>CSS: Barve in postavitev</h2>
+        
+        <button id="theme-toggle">tema!</button>
+    </header>
+    
+    <main>
+        <p class="large-text">Leto 2013 je prineslo razsvetljenje. HTML je bil šele začetek, CSS pa tisto, kar je vsemu dalo dušo.</p>
+        
+        <p class="body-text">
+            Ko sem prvič odkril CSS, se mi je zdelo, kot da sem dobil čopič in barve. Prej so bile moje strani zgolj kupi teksta na belem ozadju. Zdaj sem lahko <span class="highlight">nadzoroval vse</span> – od barve pisave do tega, kje točno na zaslonu se element nahaja.
+        </p>
+
+        <h2>Bojevanje z robovi</h2>
+        <p class="body-text">
+            Seveda ni šlo brez zapletov. Kdo se ne spomni tistih dni, ko je bilo <span class="ink-text">centriranje elementa</span> (tisti slavni `div`) prava umetnost? Preden smo imeli Flexbox in Grid, smo se borili s `float` lastnostmi in `clear: both`. Bilo je naporno, a vsaka zmaga nad postavitvijo je bila sladka.
+        </p>
+
+        <div class="code-block">
+            body {<br>
+            &nbsp;&nbsp;background-color: #1e272e;<br>
+            &nbsp;&nbsp;color: #d2dae2;<br>
+            }<br>
+            .moj-element {<br>
+            &nbsp;&nbsp;margin: 0 auto;<br>
+            }
+        </div>
+
+        <p class="body-text">
+            CSS je postal moj najljubši del uganke. Razumevanje <span class="highlight">box-modela</span> (margin, border, padding) je bilo trenutek, ko sem dejansko začel "videti" spletne strani. Nenadoma sem razumel, zakaj se stvari ne obnašajo tako, kot sem si zamislil.
+        </p>
+
+        <h2 style="font-size: 40px;">Umetnost detajlov</h2>
+        <p class="body-text">
+            Naučil sem se, da dobra spletna stran ni le tista, ki deluje, ampak tista, ki <span class="ink-text">izgleda premišljeno</span>. Tipografija, presledki, barvne palete... Vse to je igralo vlogo. CSS mi je omogočil, da sem svoje tehnično znanje pretvoril v vizualno doživetje.
+        </p>
+
+        <p class="large-text" style="text-align: center; margin-top: 50px;">
+            Danes je CSS zame več kot le koda – je način, kako na spletu ustvarjam vzdušje.
+        </p>
+    </main>
+
+    <script>
+        const btn = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+        btn.addEventListener("click", () => {
+            const currentTheme = root.getAttribute("data-theme");
+            root.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+        });
+    </script>
+</body>
+</html>

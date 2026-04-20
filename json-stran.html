@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sl" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Zgodba | Dervic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root[data-theme="light"] { --bg: #fffdf5; --text: #2b2b2b; --accent: #929d19; --ink: #13a78a; }
+        :root[data-theme="dark"] { --bg: #1e272e; --text: #d2dae2; --accent: #ffdd59; --ink: #00d8d6; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Caveat', cursive; }
+        body { max-width: 999px; margin: 0 auto; padding: 60px 25px; background-color: var(--bg); color: var(--text); line-height: 1.4; }
+
+        .back-link { display: inline-block; margin-bottom: 30px; color: var(--ink); text-decoration: none; font-size: 24px; border-bottom: 2px solid var(--ink); }
+        
+        h1 { font-size: 80px; color: var(--accent); margin-bottom: 20px; transform: rotate(-1deg); }
+        h2 { font-size: 50px; color: var(--ink); margin-top: 40px; margin-bottom: 20px; }
+        
+        .large-text { font-size: 40px; margin-bottom: 20px; font-weight: 700; }
+        .body-text { font-size: 28px; margin-bottom: 20px; }
+        .highlight { color: var(--accent); font-weight: 700; }
+        .ink-text { color: var(--ink); }
+
+        .code-block { 
+            background: rgba(0,0,0,0.05); 
+            padding: 25px; 
+            border-radius: 15px 50px 30px 5px; 
+            font-family: 'Caveat', cursive; 
+            font-size: 26px; 
+            margin: 30px 0;
+            border: 3px dashed var(--ink); 
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        header {
+            display: flex;             /* Omogoči flexbox */
+            justify-content: space-between; /* Naslov levo, gumb desno */
+            align-items: center;       /* Navpično poravnanje */
+            
+      
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 2px solid var(--text);
+            padding: 2px 12px;
+            cursor: pointer;
+            color: var(--text);
+            border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+            font-size: 20px;
+            /* Gumb se zdaj samodejno postavi v headerju */
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Nazaj na portfolio</a>
+
+    <header>
+        <h2>JSON: Jezik podatkov</h2>
+        
+        <button id="theme-toggle">tema!</button>
+    </header>
+    
+    <main>
+        <p class="large-text">Leto 2016. Splet se je začel hitreje vrteti. Potreboval sem način, kako hitro prenesti informacije, ne da bi obremenil celoten strežnik.</p>
+        
+        <p class="body-text">
+            Odkritje JSON-a (JavaScript Object Notation) je bilo kot <span class="highlight">prehod na esperanto</span> za računalnike. Pred tem so bili zapisi podatkov pogosto okorni in težko berljivi. JSON pa je bil preprost, lahek in neverjetno čitljiv – tako za ljudi kot za stroje.
+        </p>
+
+        <h2>Urejeno shranjevanje</h2>
+        <p class="body-text">
+            Spoznal sem, da je JSON kot nalašč za konfiguracije in izmenjavo podatkov med frontendom in backendom. Nič več nepotrebne navlake, le čista struktura ključ-vrednost. Nenadoma so se vsi moji API klici zdeli veliko bolj logični.
+        </p>
+
+        <div class="code-block">
+            {<br>
+            &nbsp;&nbsp;"projekt": "dervic.blog",<br>
+            &nbsp;&nbsp;"status": "aktivno",<br>
+            &nbsp;&nbsp;"jeziki": ["html", "css", "js"]<br>
+            }
+        </div>
+
+        <p class="body-text">
+            To je bila tista <span class="ink-text">manjkajoča povezava</span> v mojem znanju. Razumeti, kako serializirati objekte v JSON in jih kasneje pretvoriti nazaj v uporabno kodo, mi je odprlo vrata do gradnje bolj odzivnih spletnih aplikacij.
+        </p>
+
+        <h2 style="font-size: 40px;">Standard današnjega spleta</h2>
+        <p class="body-text">
+            Danes je JSON povsod. Od REST API-jev do nastavitev projektov. <span class="highlight">Enostavnost</span> je njegova največja prednost. Naučil sem se, da v svetu razvoja niso vedno najbolj kompleksne rešitve najboljše – pogosto je prav tista preprosta, elegantna oblika zapisa tista, ki premaga vse ostale.
+        </p>
+
+        <p class="large-text" style="text-align: center; margin-top: 50px;">
+            JSON je bil tisti košček sestavljanke, ki je vse moje projekte povezal v delujočo celoto.
+        </p>
+    </main>
+
+    <script>
+        const btn = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+        btn.addEventListener("click", () => {
+            const currentTheme = root.getAttribute("data-theme");
+            root.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+        });
+    </script>
+</body>
+</html>

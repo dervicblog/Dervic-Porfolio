@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sl" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHP Zgodba | Dervic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root[data-theme="light"] { --bg: #fffdf5; --text: #2b2b2b; --accent: #929d19; --ink: #13a78a; }
+        :root[data-theme="dark"] { --bg: #1e272e; --text: #d2dae2; --accent: #ffdd59; --ink: #00d8d6; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Caveat', cursive; }
+        body { max-width: 999px; margin: 0 auto; padding: 60px 25px; background-color: var(--bg); color: var(--text); line-height: 1.4; }
+
+        .back-link { display: inline-block; margin-bottom: 30px; color: var(--ink); text-decoration: none; font-size: 24px; border-bottom: 2px solid var(--ink); }
+        
+        h1 { font-size: 80px; color: var(--accent); margin-bottom: 20px; transform: rotate(-1deg); }
+        h2 { font-size: 50px; color: var(--ink); margin-top: 40px; margin-bottom: 20px; }
+        
+        .large-text { font-size: 40px; margin-bottom: 20px; font-weight: 700; }
+        .body-text { font-size: 28px; margin-bottom: 20px; }
+        .highlight { color: var(--accent); font-weight: 700; }
+        .ink-text { color: var(--ink); }
+
+        .code-block { 
+            background: rgba(0,0,0,0.05); 
+            padding: 25px; 
+            border-radius: 15px 50px 30px 5px; 
+            font-family: 'Caveat', cursive; 
+            font-size: 26px; 
+            margin: 30px 0;
+            border: 3px dashed var(--ink); 
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        header {
+            display: flex;             /* Omogoči flexbox */
+            justify-content: space-between; /* Naslov levo, gumb desno */
+            align-items: center;       /* Navpično poravnanje */
+            
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 2px solid var(--text);
+            padding: 2px 12px;
+            cursor: pointer;
+            color: var(--text);
+            border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+            font-size: 20px;
+            /* Gumb se zdaj samodejno postavi v headerju */
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Nazaj na portfolio</a>
+
+    <header>
+        <h2>PHP: Strežniška magija</h2>
+        
+        <button id="theme-toggle">tema!</button>
+    </header>
+    
+    <main>
+        <p class="large-text">Leto 2015. Čas, ko sem se odločil, da želim, da moje strani ne le izgledajo lepo, ampak tudi "razmišljajo".</p>
+        
+        <p class="body-text">
+            Do takrat je bil moj svet omejen na brskalnik. S PHP-jem pa sem končno dobil ključe do strežnika. Nenadoma sem lahko obdeloval obrazce, se povezoval s podatkovno bazo in ustvarjal vsebino, ki se je spreminjala glede na uporabnika. Bila je <span class="highlight">prava moč</span>.
+        </p>
+
+        <h2>Od statike do dinamike</h2>
+        <p class="body-text">
+            Največji prehod je bil v razumevanju, da koda ne teče več na mojem računalniku, ampak nekje v "oblaku". Naučiti se, kako pravilno zajeti podatke iz obrazca preko <code>$_POST</code> ali <code>$_GET</code>, je bila prva lekcija iz varnosti in logike.
+        </p>
+
+        <div class="code-block">
+            &lt;?php<br>
+            $ime = "Dervic";<br>
+            echo "Pozdravljen, " . $ime . "!";<br>
+            ?&gt;
+        </div>
+
+        <p class="body-text">
+            Bilo je naporno, a hkrati neverjetno. Vsakič, ko mi je uspelo shraniti podatek v bazo in ga kasneje izpisati na zaslon, sem se počutil kot <span class="ink-text">arhitekt digitalnih sistemov</span>. PHP je bil jezik, ki je povezal vse moje prejšnje znanje v smiselno celoto.
+        </p>
+
+        <h2 style="font-size: 40px;">Varnost na prvem mestu</h2>
+        <p class="body-text">
+            Z velikimi močmi pride velika odgovornost. Hitro sem se naučil, da ni vseeno, kako pišeš kodo. Preprečevanje SQL injekcij, filtriranje vhodnih podatkov... PHP me je naučil <span class="highlight">discipline</span>. Danes vem, da je dobra koda tista, ki ni le hitra, ampak predvsem varna.
+        </p>
+
+        <p class="large-text" style="text-align: center; margin-top: 50px;">
+            PHP je bil moj vstop v svet backend razvoja, ki me navdušuje še danes.
+        </p>
+    </main>
+
+    <script>
+        const btn = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+        btn.addEventListener("click", () => {
+            const currentTheme = root.getAttribute("data-theme");
+            root.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+        });
+    </script>
+</body>
+</html>
